@@ -13,12 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    private var numberParticipantsCoordinator: NumberParticipantsCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = NumberParticipantsViewController()
-        window?.rootViewController = vc
-        window?.makeKey()
+        let navigationVC = UINavigationController()
+        navigationVC.navigationBar.barTintColor = .systemOrange
+        window?.rootViewController = navigationVC
+        numberParticipantsCoordinator = NumberParticipantsCoordinator(navigationController: navigationVC)
+        numberParticipantsCoordinator?.start()
         window?.makeKeyAndVisible()
         
         return true

@@ -9,6 +9,7 @@ import UIKit
 
 public struct Appearance {
     let baseOffset: CGFloat = 16
+    let baseCornerRadius: CGFloat = 8
 }
 
 open class BaseView: UIView {
