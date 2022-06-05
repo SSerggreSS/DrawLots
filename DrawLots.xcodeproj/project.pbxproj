@@ -23,6 +23,8 @@
 		A595875F2843F7E0004C8F59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A595875D2843F7E0004C8F59 /* LaunchScreen.storyboard */; };
 		A59587842843FBDA004C8F59 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A59587832843FBDA004C8F59 /* RxCocoa */; };
 		A59587862843FBDA004C8F59 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A59587852843FBDA004C8F59 /* RxSwift */; };
+		A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */; };
+		A598E1B3284C43C000FDF9BD /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A598E1B2284C43C000FDF9BD /* BaseButton.swift */; };
 		A5DF3E7C2846B909003BE775 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DF3E7E2846B909003BE775 /* Localizable.strings */; };
 		A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */; };
 		A5DF3E852846BB6F003BE775 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E842846BB6F003BE775 /* String+Ext.swift */; };
@@ -65,6 +67,8 @@
 		A59587602843F7E0004C8F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59587652843F7E0004C8F59 /* DrawLotsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawLotsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A595876F2843F7E0004C8F59 /* DrawLotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawLotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		A598E1B2284C43C000FDF9BD /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		A5DF3E7D2846B909003BE775 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DF3E7F2846B934003BE775 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLotsLocalizable.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				A59587532843F7DF004C8F59 /* BaseViewController.swift */,
 				A53DD7062844000B00C5492B /* BaseView.swift */,
+				A598E1B2284C43C000FDF9BD /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			children = (
 				A5DF3E842846BB6F003BE775 /* String+Ext.swift */,
 				A587FCC528481164003F71B6 /* NSObject+Ext.swift */,
+				A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */,
+				A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */,
 				A59587542843F7DF004C8F59 /* BaseViewController.swift in Sources */,
 				A5DF3E8F2846C870003BE775 /* Coordinator.swift in Sources */,
 				A595875A2843F7DF004C8F59 /* DrawLots.xcdatamodeld in Sources */,
@@ -376,6 +383,7 @@
 				A53DD7032843FF5600C5492B /* NumberParticipantsViewController.swift in Sources */,
 				A587FCC628481164003F71B6 /* NSObject+Ext.swift in Sources */,
 				A5DF3E852846BB6F003BE775 /* String+Ext.swift in Sources */,
+				A598E1B3284C43C000FDF9BD /* BaseButton.swift in Sources */,
 				A53DD7052843FFDB00C5492B /* NumberParticipantsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

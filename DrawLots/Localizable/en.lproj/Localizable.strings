@@ -6,6 +6,10 @@
   
 */
 
+// MARK: - Common
+
+"done" = "Done";
+
 // MARK: - NumberParticipants
 
 "number_participants_specify" = "Укажите количество участников и количество проигравших";

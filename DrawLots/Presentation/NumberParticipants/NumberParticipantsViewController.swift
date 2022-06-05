@@ -41,9 +41,26 @@ final class NumberParticipantsViewController: BaseViewController, View {
         
         bindViewWith(reactor: reactor)
         
+        reactor.state
+            .map { $0.isEnabledContinueButton }
+            .bind(to: customView.continueButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
     
     private func bindViewWith(reactor: NumberParticipantsViewModel) {
+        
+        customView.participantsTextField.rx
+            .text
+            .map { .setNumberParticipants($0.orEmpty) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        customView.losersTextField.rx
+            .text
+            .map { .setLosersNumber($0.orEmpty) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         customView.continueButton.rx
             .tap
             .bind { [unowned self] in

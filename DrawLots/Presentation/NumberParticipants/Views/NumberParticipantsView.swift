@@ -13,6 +13,7 @@ private extension Appearance {
     var numberTextFieldHeight: CGFloat { 56 }
     var numberTextFieldBackgroundColor: UIColor { .lightGray }
     var titleLabelFont: UIFont { .systemFont(ofSize: 28) }
+    var continueButtonHeight: CGFloat { 56 }
 }
 
 final class NumberParticipantsView: BaseView {
@@ -34,26 +35,28 @@ final class NumberParticipantsView: BaseView {
         return sv
     }()
     
-    private lazy var participantsTextField: UITextField = {
+    private(set) lazy var participantsTextField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
+        tf.addDoneButtonOnKeyboard()
         return tf
     }()
     
-    private lazy var losersTextField: UITextField = {
+    private(set) lazy var losersTextField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
+        tf.addDoneButtonOnKeyboard()
         return tf
     }()
     
-    private(set) lazy var continueButton: UIButton = {
-        let button = UIButton()
+    private(set) lazy var continueButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle(strings.goToDraw, for: .normal)
         button.backgroundColor = .blue
         button.layer.cornerRadius = appearance.baseCornerRadius
@@ -86,7 +89,7 @@ final class NumberParticipantsView: BaseView {
         }
         
         continueButton.snp.makeConstraints { make in
-            make.height.equalTo(56)
+            make.height.equalTo(appearance.continueButtonHeight)
             make.leading.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(appearance.baseOffset)
         }
     }
