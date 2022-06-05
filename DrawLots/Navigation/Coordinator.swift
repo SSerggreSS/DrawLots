@@ -40,7 +40,7 @@ extension NumberParticipantsCoordinator: NumberParticipantsViewControllerDelegat
     
     func goToOnDrawLotsScreen(_ controller: NumberParticipantsViewController) {
         #warning("добавить экран для следующего шага")
-        let testVC = UIViewController()
+        let testVC = TossViewController()
         testVC.view.backgroundColor = .red
         navigationController.pushViewController(testVC, animated: true)
     }
