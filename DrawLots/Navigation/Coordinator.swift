@@ -45,4 +45,21 @@ extension NumberParticipantsCoordinator: NumberParticipantsViewControllerDelegat
         navigationController.pushViewController(testVC, animated: true)
     }
     
+    func showAllert(_ controller: NumberParticipantsViewController, with message: String) {
+        
+        let allert = UIAlertController(
+            title: "Ошибка ввода",
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let ok = UIAlertAction(title: "Ok", style: .default) { _ in
+            print("ok")
+        }
+        
+        allert.addAction(ok)
+        
+        controller.present(allert, animated: true)
+    }
+    
 }
