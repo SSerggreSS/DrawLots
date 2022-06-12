@@ -23,6 +23,8 @@ final class NumberParticipantsViewController: BaseViewController, View {
 
     private let customView = NumberParticipantsView()
     
+    private let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    
     init(viewModel: NumberParticipantsViewModel) {
         super.init(nibName: nil, bundle: nil)
         reactor = viewModel
@@ -44,7 +46,7 @@ final class NumberParticipantsViewController: BaseViewController, View {
         
         reactor.state
             .map { $0.isEnabledContinueButton }
-            .bind(to: customView.continueButton.rx.isEnabled)
+            .bind(to: customView.continueButton.rx.isDesabled)
             .disposed(by: disposeBag)
         
         reactor.state
@@ -58,39 +60,86 @@ final class NumberParticipantsViewController: BaseViewController, View {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map { $0.outputParitcipantsNumber }
+            .map { $0.inputParitcipantsNumber }
             .distinctUntilChanged()
             .bind(to: customView.participantsTextField.rx.value)
             .disposed(by: disposeBag)
            
         reactor.state
-            .map { $0.outputLosersNumber }
+            .map { $0.inputLosersNumber }
             .distinctUntilChanged()
             .bind(to: customView.losersTextField.rx.value)
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isGoToDraw }
+            .compactMap { $0 }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                self.delegate?.goToOnDrawLotsScreen(self)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isPerformAnimationForParitcipantsField }
+            .distinctUntilChanged()
+            .compactMap { $0 }
+            .filter { $0 }
+            .bind { [weak self] _ in
+                self?.impactFeedbackGenerator.impactOccurred()
+                self?.customView.participantsTextField.animationShake()
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isPerformAnimationForLosersField }
+            .distinctUntilChanged()
+            .compactMap { $0 }
+            .filter { $0 }
+            .bind { [weak self] _ in
+                self?.impactFeedbackGenerator.impactOccurred()
+                self?.customView.losersTextField.animationShake()
+            }
+            .disposed(by: disposeBag)
+        
     }
     
     private func bindViewWith(reactor: NumberParticipantsViewModel) {
         
         customView.participantsTextField.rx
+            .controlEvent(.editingDidEnd)
+            .map { .validateFieldsValues }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        customView.losersTextField.rx
+            .controlEvent(.editingDidEnd)
+            .map { .validateFieldsValues }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        customView.participantsTextField.rx
             .text
+            .skip(1)
             .distinctUntilChanged()
-            .map { .setInputNumberParticipants(Int($0.orEmpty)) }
+            .map { .setInputNumberParticipants($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         customView.losersTextField.rx
             .text
+            .skip(1)
             .distinctUntilChanged()
-            .map { .setInputLosersNumber(Int($0.orEmpty)) }
+            .map { .setInputLosersNumber($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         customView.continueButton.rx
             .tap
-            .bind { [unowned self] in
-                self.delegate?.goToOnDrawLotsScreen(self)
-            }
+            .map { .processTapContinue }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
 }

@@ -11,6 +11,8 @@
 		A53DD7052843FFDB00C5492B /* NumberParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DD7042843FFDB00C5492B /* NumberParticipantsView.swift */; };
 		A53DD7072844000B00C5492B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DD7062844000B00C5492B /* BaseView.swift */; };
 		A53DD70A2844033A00C5492B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A53DD7092844033A00C5492B /* SnapKit */; };
+		A585E0D6285687D40069C090 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585E0D5285687D40069C090 /* UIView+Ext.swift */; };
+		A585E0DB28568FEA0069C090 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585E0DA28568FEA0069C090 /* Theme.swift */; };
 		A587FCBC28480AF6003F71B6 /* TossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587FCBB28480AF6003F71B6 /* TossViewController.swift */; };
 		A587FCBF28480C6F003F71B6 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = A587FCBE28480C6F003F71B6 /* RxDataSources */; };
 		A587FCC228480E33003F71B6 /* TossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587FCC128480E33003F71B6 /* TossView.swift */; };
@@ -54,6 +56,8 @@
 		A53DD7022843FF5600C5492B /* NumberParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsViewController.swift; sourceTree = "<group>"; };
 		A53DD7042843FFDB00C5492B /* NumberParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsView.swift; sourceTree = "<group>"; };
 		A53DD7062844000B00C5492B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A585E0D5285687D40069C090 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		A585E0DA28568FEA0069C090 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A587FCBB28480AF6003F71B6 /* TossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossViewController.swift; sourceTree = "<group>"; };
 		A587FCC128480E33003F71B6 /* TossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossView.swift; sourceTree = "<group>"; };
 		A587FCC32848113F003F71B6 /* TossViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossViewCell.swift; sourceTree = "<group>"; };
@@ -110,9 +114,9 @@
 		A53DD7002843FEFB00C5492B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A59587532843F7DF004C8F59 /* BaseViewController.swift */,
-				A53DD7062844000B00C5492B /* BaseView.swift */,
-				A598E1B2284C43C000FDF9BD /* BaseButton.swift */,
+				A585E0D928568FCB0069C090 /* Theme */,
+				A585E0D828568FBE0069C090 /* Views */,
+				A585E0D728568FAE0069C090 /* Presentation */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -125,6 +129,31 @@
 				A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */,
 			);
 			path = NumberParticipants;
+			sourceTree = "<group>";
+		};
+		A585E0D728568FAE0069C090 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A59587532843F7DF004C8F59 /* BaseViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A585E0D828568FBE0069C090 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A598E1B2284C43C000FDF9BD /* BaseButton.swift */,
+				A53DD7062844000B00C5492B /* BaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A585E0D928568FCB0069C090 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				A585E0DA28568FEA0069C090 /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		A587FCBA28480AB1003F71B6 /* Toss */ = {
@@ -195,6 +224,7 @@
 				A5DF3E842846BB6F003BE775 /* String+Ext.swift */,
 				A587FCC528481164003F71B6 /* NSObject+Ext.swift */,
 				A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */,
+				A585E0D5285687D40069C090 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A585E0D6285687D40069C090 /* UIView+Ext.swift in Sources */,
 				A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */,
 				A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */,
 				A59587542843F7DF004C8F59 /* BaseViewController.swift in Sources */,
@@ -377,6 +408,7 @@
 				A587FCC42848113F003F71B6 /* TossViewCell.swift in Sources */,
 				A587FCBC28480AF6003F71B6 /* TossViewController.swift in Sources */,
 				A587FCC228480E33003F71B6 /* TossView.swift in Sources */,
+				A585E0DB28568FEA0069C090 /* Theme.swift in Sources */,
 				A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */,
 				A59587502843F7DF004C8F59 /* AppDelegate.swift in Sources */,
 				A53DD7072844000B00C5492B /* BaseView.swift in Sources */,

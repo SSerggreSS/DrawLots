@@ -29,6 +29,9 @@ enum DrawLotsLocalizable {
         static let specifyNumberParticipants = "number_participants_specify".localized(bundle: bundle)
         /// Прейти к жребию
         static let goToDraw = "number_participants_go_to_draw".localized(bundle: bundle)
+        /// Введите количество участников
+        static let entryCountParticipants = "number_participants_entry_count".localized(bundle: bundle)
+        static let entryCountLosers = "number_participants_entry_count_losers".localized(bundle: bundle)
     }
     
     

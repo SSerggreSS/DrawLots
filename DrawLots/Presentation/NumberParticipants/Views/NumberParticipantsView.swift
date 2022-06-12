@@ -9,11 +9,13 @@ import SnapKit
 import UIKit
 
 private extension Appearance {
+    var titleLabelTextColor: UIColor { .white }
     var numberTextFieldFont: UIFont { .systemFont(ofSize: 20) }
     var numberTextFieldHeight: CGFloat { 56 }
     var numberTextFieldBackgroundColor: UIColor { .lightGray }
     var titleLabelFont: UIFont { .systemFont(ofSize: 28) }
     var continueButtonHeight: CGFloat { 56 }
+    var textFieldSideTextOffset: CATransform3D { CATransform3DMakeTranslation(8, 0, 0) }
 }
 
 final class NumberParticipantsView: BaseView {
@@ -24,6 +26,7 @@ final class NumberParticipantsView: BaseView {
         let label = UILabel()
         label.text = strings.specifyNumberParticipants
         label.font = appearance.titleLabelFont
+        label.textColor = appearance.titleLabelTextColor
         label.numberOfLines = .zero
         return label
     }()
@@ -37,6 +40,8 @@ final class NumberParticipantsView: BaseView {
     
     private(set) lazy var participantsTextField: UITextField = {
         let tf = UITextField()
+        tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
+        tf.placeholder = strings.entryCountParticipants
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
@@ -47,6 +52,8 @@ final class NumberParticipantsView: BaseView {
     
     private(set) lazy var losersTextField: UITextField = {
         let tf = UITextField()
+        tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
+        tf.placeholder = strings.entryCountLosers
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
