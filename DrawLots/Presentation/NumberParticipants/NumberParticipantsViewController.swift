@@ -11,7 +11,7 @@ import RxCocoa
 import UIKit
 
 protocol NumberParticipantsViewControllerDelegate: AnyObject {
-    func goToOnDrawLotsScreen(_ controller: NumberParticipantsViewController)
+    func goToOnDrawLotsScreen(_ controller: NumberParticipantsViewController, tossModel: TossModel)
     func showAllert(_ controller: NumberParticipantsViewController, with message: String)
 }
 
@@ -73,12 +73,15 @@ final class NumberParticipantsViewController: BaseViewController, View {
         
         reactor.state
             .map { $0.isGoToDraw }
-            .compactMap { $0 }
             .distinctUntilChanged()
+            .compactMap { $0 }
             .filter { $0 }
             .bind { [weak self] _ in
-                guard let self = self else { return }
-                self.delegate?.goToOnDrawLotsScreen(self)
+                guard
+                    let self = self,
+                    let tossModel = reactor.tossModel
+                else { return }
+                self.delegate?.goToOnDrawLotsScreen(self, tossModel: tossModel)
             }
             .disposed(by: disposeBag)
         

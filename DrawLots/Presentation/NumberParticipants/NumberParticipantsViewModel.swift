@@ -10,7 +10,7 @@ import ReactorKit
 final class NumberParticipantsViewModel: Reactor {
     
     var initialState: State
-
+    
     enum Action {
         case setInputNumberParticipants(String?)
         case setInputLosersNumber(String?)
@@ -39,6 +39,8 @@ final class NumberParticipantsViewModel: Reactor {
             inputParitcipantsNumber.orEmpty.isNotEmpty && inputLosersNumber.orEmpty.isNotEmpty
         }
     }
+    
+    private(set) var tossModel: TossModel?
     
     init() {
         initialState = State()
@@ -78,8 +80,27 @@ final class NumberParticipantsViewModel: Reactor {
     
     private func processTapContinue() -> Observable<Mutation> {
         
-        if currentState.inputParitcipantsNumber.orEmpty.isNotEmpty &&
-            currentState.inputLosersNumber.orEmpty.isNotEmpty {
+        if let numberParticipants = Int(currentState.inputParitcipantsNumber.orEmpty),
+           let numberLosers = Int(currentState.inputLosersNumber.orEmpty) {
+            
+            
+            var losersSet = Set<Int>()
+            for _ in 0..<numberLosers {
+                let loserIndex = Int.random(in: 0...numberParticipants)
+                losersSet.insert(loserIndex)
+            }
+            
+            var participants = [Participant]()
+            for i in 0..<numberParticipants {
+                guard losersSet.contains(i) else {
+                    participants.append(Participant(isLoser: false))
+                    continue
+                }
+                participants.append(Participant(isLoser: true))
+            }
+            
+            tossModel = TossModel(participants: participants)
+            
             return .of(
                 .setGoToDraw(true),
                 .setGoToDraw(nil)

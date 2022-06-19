@@ -33,6 +33,7 @@
 		A5DF3E882846C14A003BE775 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5DF3E872846C14A003BE775 /* ReactorKit */; };
 		A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */; };
 		A5DF3E8F2846C870003BE775 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E8E2846C870003BE775 /* Coordinator.swift */; };
+		A5E0FEC1285FBED2003C3D5D /* TossModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E0FEC0285FBED2003C3D5D /* TossModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		A5DF3E842846BB6F003BE775 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsViewModel.swift; sourceTree = "<group>"; };
 		A5DF3E8E2846C870003BE775 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A5E0FEC0285FBED2003C3D5D /* TossModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		A587FCBA28480AB1003F71B6 /* Toss */ = {
 			isa = PBXGroup;
 			children = (
+				A5E0FEBF285FBEC9003C3D5D /* Models */,
 				A587FCC028480E21003F71B6 /* Views */,
 				A587FCBB28480AF6003F71B6 /* TossViewController.swift */,
 			);
@@ -252,6 +255,14 @@
 				A5DF3E8E2846C870003BE775 /* Coordinator.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A5E0FEBF285FBEC9003C3D5D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5E0FEC0285FBED2003C3D5D /* TossModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				A5DF3E8F2846C870003BE775 /* Coordinator.swift in Sources */,
 				A595875A2843F7DF004C8F59 /* DrawLots.xcdatamodeld in Sources */,
 				A587FCC42848113F003F71B6 /* TossViewCell.swift in Sources */,
+				A5E0FEC1285FBED2003C3D5D /* TossModel.swift in Sources */,
 				A587FCBC28480AF6003F71B6 /* TossViewController.swift in Sources */,
 				A587FCC228480E33003F71B6 /* TossView.swift in Sources */,
 				A585E0DB28568FEA0069C090 /* Theme.swift in Sources */,

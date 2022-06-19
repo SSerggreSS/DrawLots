@@ -7,18 +7,25 @@
 
 import UIKit
 
-class TossViewCell: UICollectionViewCell {
-    
-    let titleLabel = UILabel()
+final class TossViewCell: UICollectionViewCell {
+    private let appearance = Appearance()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureWith(item: TossCellModel) {
+        titleLabel.text = item.participant.isLoser ? "😔" : "✌️" 
     }
     
     private func setupUI() {
@@ -39,5 +46,6 @@ class TossViewCell: UICollectionViewCell {
     
     private func configure() {
         titleLabel.text = "test text"
+        layer.cornerRadius = appearance.baseCornerRadius
     }
 }

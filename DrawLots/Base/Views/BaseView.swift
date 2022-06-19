@@ -8,7 +8,9 @@
 import UIKit
 
 public struct Appearance {
+    /// 16
     let baseOffset: CGFloat = 16
+    /// 8
     let baseCornerRadius: CGFloat = 8
 }
 
