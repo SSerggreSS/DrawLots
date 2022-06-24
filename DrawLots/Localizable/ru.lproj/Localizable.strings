@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  DrawLots
+
+  Created by Сергей  Бей on 31.05.2022.
+  
+*/
+
+// MARK: - Common
+
+"done" = "Готово";
+
+// MARK: - NumberParticipants
+
+"number_participants_specify" = "Укажите количество участников и количество проигравших";
+"number_participants_go_to_draw" = "Прейти к жребию";
+"number_participants_entry_count" = "Введите количество участников";
+"number_participants_entry_count_losers" = "Введите количество проигравших";
