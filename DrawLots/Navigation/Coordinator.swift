@@ -38,9 +38,9 @@ class NumberParticipantsCoordinator: Coordinator {
 
 extension NumberParticipantsCoordinator: NumberParticipantsViewControllerDelegate {
     
-    func goToOnDrawLotsScreen(_ controller: NumberParticipantsViewController) {
+    func goToOnDrawLotsScreen(_ controller: NumberParticipantsViewController, tossModel: TossModel) {
         #warning("добавить экран для следующего шага")
-        let testVC = TossViewController()
+        let testVC = TossViewController(tossModel: tossModel)
         testVC.view.backgroundColor = .red
         navigationController.pushViewController(testVC, animated: true)
     }
