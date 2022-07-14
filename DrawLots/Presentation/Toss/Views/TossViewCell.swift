@@ -7,11 +7,23 @@
 
 import UIKit
 
+private extension Appearance {
+    #warning("add all items appearance")
+}
+
 final class TossViewCell: UICollectionViewCell {
+    
     private let appearance = Appearance()
+    
+    private var feedbackGenerator = Vibration()
+    
+    private var model: TossCellModel?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.isHidden = true
+        label.font = label.font.withSize(50)
         return label
     }()
     
@@ -24,8 +36,15 @@ final class TossViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        model = nil
+    }
+    
     func configureWith(item: TossCellModel) {
-        titleLabel.text = item.participant.isLoser ? "😔" : "✌️" 
+        model = item
+        titleLabel.isHidden = item.isHidden
+        titleLabel.text = item.participant.isLoser ? "😔" : "✌️"
     }
     
     private func setupUI() {
@@ -45,7 +64,28 @@ final class TossViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        titleLabel.text = "test text"
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showWinOrLoss)))
         layer.cornerRadius = appearance.baseCornerRadius
+    }
+    
+    @objc private func showWinOrLoss() {
+        titleLabel.alpha = 0
+        titleLabel.isHidden = false
+        model?.isHidden = false
+        UIView.animate(
+            withDuration: 0.5,
+            animations: {
+                self.titleLabel.alpha = 1
+            },
+            completion: { _ in
+                guard self.model?.participant.isLoser == true else {
+                    self.feedbackGenerator.setVibration(behavior: OneVibration())
+                    self.feedbackGenerator.vibrate()
+                    return
+                }
+                self.feedbackGenerator.setVibration(behavior: DoubleVibration())
+                self.feedbackGenerator.vibrate()
+            }
+        )
     }
 }

@@ -27,6 +27,7 @@
 		A59587862843FBDA004C8F59 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A59587852843FBDA004C8F59 /* RxSwift */; };
 		A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */; };
 		A598E1B3284C43C000FDF9BD /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A598E1B2284C43C000FDF9BD /* BaseButton.swift */; };
+		A5B3AC47287FBFB000473EB6 /* StrategyVibrateBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B3AC46287FBFB000473EB6 /* StrategyVibrateBehavior.swift */; };
 		A5DF3E7C2846B909003BE775 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DF3E7E2846B909003BE775 /* Localizable.strings */; };
 		A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */; };
 		A5DF3E852846BB6F003BE775 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E842846BB6F003BE775 /* String+Ext.swift */; };
@@ -74,6 +75,7 @@
 		A595876F2843F7E0004C8F59 /* DrawLotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawLotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		A598E1B2284C43C000FDF9BD /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		A5B3AC46287FBFB000473EB6 /* StrategyVibrateBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyVibrateBehavior.swift; sourceTree = "<group>"; };
 		A5DF3E7D2846B909003BE775 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DF3E7F2846B934003BE775 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLotsLocalizable.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		A587FCBA28480AB1003F71B6 /* Toss */ = {
 			isa = PBXGroup;
 			children = (
+				A5B3AC45287FBF8500473EB6 /* Strategy */,
 				A5E0FEBF285FBEC9003C3D5D /* Models */,
 				A587FCC028480E21003F71B6 /* Views */,
 				A587FCBB28480AF6003F71B6 /* TossViewController.swift */,
@@ -210,6 +213,14 @@
 				A59587582843F7DF004C8F59 /* DrawLots.xcdatamodeld */,
 			);
 			path = DrawLots;
+			sourceTree = "<group>";
+		};
+		A5B3AC45287FBF8500473EB6 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				A5B3AC46287FBFB000473EB6 /* StrategyVibrateBehavior.swift */,
+			);
+			path = Strategy;
 			sourceTree = "<group>";
 		};
 		A5DF3E802846B9FC003BE775 /* Localizable */ = {
@@ -410,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B3AC47287FBFB000473EB6 /* StrategyVibrateBehavior.swift in Sources */,
 				A585E0D6285687D40069C090 /* UIView+Ext.swift in Sources */,
 				A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */,
 				A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */,
