@@ -15,6 +15,10 @@ final class TossView: BaseView {
     
     let tossCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.minimumInteritemSpacing = 24
+        layout.minimumLineSpacing = 24
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .orange
         collectionView.setCollectionViewLayout(layout, animated: true)
@@ -33,5 +37,4 @@ final class TossView: BaseView {
             make.edges.equalToSuperview()
         }
     }
-    
 }

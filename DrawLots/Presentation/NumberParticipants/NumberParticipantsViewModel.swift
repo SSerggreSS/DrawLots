@@ -83,21 +83,16 @@ final class NumberParticipantsViewModel: Reactor {
         if let numberParticipants = Int(currentState.inputParitcipantsNumber.orEmpty),
            let numberLosers = Int(currentState.inputLosersNumber.orEmpty) {
             
-            
-            var losersSet = Set<Int>()
-            for _ in 0..<numberLosers {
-                let loserIndex = Int.random(in: 0...numberParticipants)
-                losersSet.insert(loserIndex)
+            var participants = Array<Participant>(
+                repeating: Participant(isLoser: false),
+                count: numberParticipants
+            )
+    
+            for i in 0..<numberLosers {
+                participants[i].isLoser = true
             }
             
-            var participants = [Participant]()
-            for i in 0..<numberParticipants {
-                guard losersSet.contains(i) else {
-                    participants.append(Participant(isLoser: false))
-                    continue
-                }
-                participants.append(Participant(isLoser: true))
-            }
+            participants.shuffle()
             
             tossModel = TossModel(participants: participants)
             

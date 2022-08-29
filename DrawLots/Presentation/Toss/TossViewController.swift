@@ -9,7 +9,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-final class TossViewController: BaseViewController {
+final class TossViewController: BaseViewController, UIScrollViewDelegate {
     
     var disposeBag = DisposeBag()
     
@@ -38,45 +38,31 @@ final class TossViewController: BaseViewController {
     private func configureDataSource() {
         
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfCustomData>(
-          configureCell: { dataSource, collectionView, indexPath, item in
+          configureCell: { _, collectionView, indexPath, item in
               let cell: TossViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TossViewCell.name, for: indexPath) as! TossViewCell
               cell.backgroundColor = .green
               cell.configureWith(item: item)
-            return cell
+              return cell
         })
         
         let items = tossModel.participants.map { TossCellModel(participant: $0) }
-
-        
-//        var items = [
-//
-//
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false),
-//            CustomData(isLoser: false)
-//        ]
-        
         
         let sections = [
-            SectionOfCustomData(header: "First section", items: items)
+            SectionOfCustomData(header: "", items: items)
         ]
         
         Observable.just(sections)
             .bind(to: customView.tossCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
-    
 }
 
-struct TossCellModel {
+class TossCellModel {
+    init(participant: Participant) {
+        self.participant = participant
+    }
     let participant: Participant
+    var isHidden = true
 }
 
 struct SectionOfCustomData: SectionModelType {
@@ -92,5 +78,3 @@ extension SectionOfCustomData {
         self.items = items
     }
 }
-
-
