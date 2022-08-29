@@ -8,7 +8,7 @@
 import Foundation
 
 struct Participant {
-    let isLoser: Bool
+    var isLoser: Bool
 }
 
 struct TossModel {
