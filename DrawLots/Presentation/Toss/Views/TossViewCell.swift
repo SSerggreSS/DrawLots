@@ -64,8 +64,12 @@ final class TossViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showWinOrLoss)))
+        addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(showWinOrLoss))
+        )
         layer.cornerRadius = appearance.baseCornerRadius
+        setShadow()
     }
     
     @objc private func showWinOrLoss() {

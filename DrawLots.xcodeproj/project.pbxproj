@@ -11,6 +11,9 @@
 		A53DD7052843FFDB00C5492B /* NumberParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DD7042843FFDB00C5492B /* NumberParticipantsView.swift */; };
 		A53DD7072844000B00C5492B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DD7062844000B00C5492B /* BaseView.swift */; };
 		A53DD70A2844033A00C5492B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A53DD7092844033A00C5492B /* SnapKit */; };
+		A57D3DD128BD1F1800EEDF3D /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D3DD028BD1F1800EEDF3D /* Coordinatable.swift */; };
+		A57D3DD328BD1F5900EEDF3D /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D3DD228BD1F5900EEDF3D /* Presentable.swift */; };
+		A57D3DD528BD1F8500EEDF3D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D3DD428BD1F8500EEDF3D /* UIViewController+Ext.swift */; };
 		A585E0D6285687D40069C090 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585E0D5285687D40069C090 /* UIView+Ext.swift */; };
 		A585E0DB28568FEA0069C090 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585E0DA28568FEA0069C090 /* Theme.swift */; };
 		A587FCBC28480AF6003F71B6 /* TossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587FCBB28480AF6003F71B6 /* TossViewController.swift */; };
@@ -29,7 +32,7 @@
 		A598E1B3284C43C000FDF9BD /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A598E1B2284C43C000FDF9BD /* BaseButton.swift */; };
 		A5B3AC47287FBFB000473EB6 /* StrategyVibrateBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B3AC46287FBFB000473EB6 /* StrategyVibrateBehavior.swift */; };
 		A5DF3E7C2846B909003BE775 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DF3E7E2846B909003BE775 /* Localizable.strings */; };
-		A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */; };
+		A5DF3E822846BA28003BE775 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E812846BA28003BE775 /* Strings.swift */; };
 		A5DF3E852846BB6F003BE775 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E842846BB6F003BE775 /* String+Ext.swift */; };
 		A5DF3E882846C14A003BE775 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5DF3E872846C14A003BE775 /* ReactorKit */; };
 		A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */; };
@@ -58,6 +61,9 @@
 		A53DD7022843FF5600C5492B /* NumberParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsViewController.swift; sourceTree = "<group>"; };
 		A53DD7042843FFDB00C5492B /* NumberParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsView.swift; sourceTree = "<group>"; };
 		A53DD7062844000B00C5492B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A57D3DD028BD1F1800EEDF3D /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		A57D3DD228BD1F5900EEDF3D /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		A57D3DD428BD1F8500EEDF3D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		A585E0D5285687D40069C090 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A585E0DA28568FEA0069C090 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A587FCBB28480AF6003F71B6 /* TossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +84,7 @@
 		A5B3AC46287FBFB000473EB6 /* StrategyVibrateBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyVibrateBehavior.swift; sourceTree = "<group>"; };
 		A5DF3E7D2846B909003BE775 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DF3E7F2846B934003BE775 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLotsLocalizable.swift; sourceTree = "<group>"; };
+		A5DF3E812846BA28003BE775 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A5DF3E842846BB6F003BE775 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsViewModel.swift; sourceTree = "<group>"; };
 		A5DF3E8E2846C870003BE775 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -227,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A5DF3E7E2846B909003BE775 /* Localizable.strings */,
-				A5DF3E812846BA28003BE775 /* DrawLotsLocalizable.swift */,
+				A5DF3E812846BA28003BE775 /* Strings.swift */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				A587FCC528481164003F71B6 /* NSObject+Ext.swift */,
 				A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */,
 				A585E0D5285687D40069C090 /* UIView+Ext.swift */,
+				A57D3DD428BD1F8500EEDF3D /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				A5DF3E8E2846C870003BE775 /* Coordinator.swift */,
+				A57D3DD028BD1F1800EEDF3D /* Coordinatable.swift */,
+				A57D3DD228BD1F5900EEDF3D /* Presentable.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -423,7 +432,7 @@
 			files = (
 				A5B3AC47287FBFB000473EB6 /* StrategyVibrateBehavior.swift in Sources */,
 				A585E0D6285687D40069C090 /* UIView+Ext.swift in Sources */,
-				A5DF3E822846BA28003BE775 /* DrawLotsLocalizable.swift in Sources */,
+				A5DF3E822846BA28003BE775 /* Strings.swift in Sources */,
 				A598E1AD284C33B700FDF9BD /* UITextField+Ext.swift in Sources */,
 				A59587542843F7DF004C8F59 /* BaseViewController.swift in Sources */,
 				A5DF3E8F2846C870003BE775 /* Coordinator.swift in Sources */,
@@ -436,11 +445,14 @@
 				A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */,
 				A59587502843F7DF004C8F59 /* AppDelegate.swift in Sources */,
 				A53DD7072844000B00C5492B /* BaseView.swift in Sources */,
+				A57D3DD528BD1F8500EEDF3D /* UIViewController+Ext.swift in Sources */,
 				A53DD7032843FF5600C5492B /* NumberParticipantsViewController.swift in Sources */,
 				A587FCC628481164003F71B6 /* NSObject+Ext.swift in Sources */,
 				A5DF3E852846BB6F003BE775 /* String+Ext.swift in Sources */,
+				A57D3DD128BD1F1800EEDF3D /* Coordinatable.swift in Sources */,
 				A598E1B3284C43C000FDF9BD /* BaseButton.swift in Sources */,
 				A53DD7052843FFDB00C5492B /* NumberParticipantsView.swift in Sources */,
+				A57D3DD328BD1F5900EEDF3D /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +637,8 @@
 				INFOPLIST_FILE = DrawLots/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -654,6 +668,8 @@
 				INFOPLIST_FILE = DrawLots/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

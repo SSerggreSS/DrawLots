@@ -9,6 +9,7 @@
 // MARK: - Common
 
 "done" = "Готово";
+"ok" = "Ок";
 
 // MARK: - NumberParticipants
 
@@ -16,3 +17,16 @@
 "number_participants_go_to_draw" = "Прейти к жребию";
 "number_participants_entry_count" = "Введите количество участников";
 "number_participants_entry_count_losers" = "Введите количество проигравших";
+
+// MARK: - Error
+
+"input_error" = "Input error";
+"error_quantity_cannot_be_equal" = "Количество участников не может быть равно количеству проигравших";
+"error_number_cannot_be_less" = "Количество участников не может быть меньше проигравших";
+"error_quantity_cannot_be_zero" = "Количество не может быть нулевым";
+"error_quantity_participant_cannot_be_zero" = "Количество участников не может быть нулевым";
+"error_quantity_losers_cannot_be_zero" = "Количество проигравших не может быть нулевым";
+
+// MARK: - Toss
+
+"toss_tap_lot" = "Тапни жребий";

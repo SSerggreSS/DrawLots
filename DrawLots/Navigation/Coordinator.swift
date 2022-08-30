@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol Coordinator : AnyObject {
+protocol Coordinator : AnyObject {
 
     var childCoordinators: [Coordinator] { get set }
 
@@ -46,20 +46,15 @@ extension NumberParticipantsCoordinator: NumberParticipantsViewControllerDelegat
     }
     
     func showAllert(_ controller: NumberParticipantsViewController, with message: String) {
+                
+        let alertAction = UIAlertAction(title: Strings.Common.ok, style: .default)
         
-        let allert = UIAlertController(
-            title: "Ошибка ввода",
+        let alertModel = AlertModel(
+            title: Strings.Error.inputError,
             message: message,
-            preferredStyle: .alert
+            firstAction: alertAction
         )
         
-        let ok = UIAlertAction(title: "Ok", style: .default) { _ in
-            print("ok")
-        }
-        
-        allert.addAction(ok)
-        
-        controller.present(allert, animated: true)
+        controller.showAlert(with: alertModel)
     }
-    
 }

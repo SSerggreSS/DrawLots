@@ -12,7 +12,13 @@ extension String {
     
     /// Получаем локализацию по ключу
     func localized(bundle: Bundle) -> String {
-        return NSLocalizedString(self, tableName: "Localizable", bundle: bundle, value: self, comment: "")
+        NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: bundle,
+            value: self,
+            comment: ""
+        )
     }
     
     /// Вернется true если строка не пустая иначе false

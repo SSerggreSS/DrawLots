@@ -38,6 +38,11 @@ final class NumberParticipantsViewController: BaseViewController, View {
        view = customView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        customView.setGradientBackground(for: .orange)
+        super.viewWillAppear(animated)
+    }
+    
     // MARK: - Bind rx
     
     func bind(reactor: NumberParticipantsViewModel) {

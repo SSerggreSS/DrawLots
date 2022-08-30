@@ -15,15 +15,6 @@ final class TossViewController: BaseViewController, UIScrollViewDelegate {
     
     private let customView = TossView()
     
-    override func loadView() {
-        view = customView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureDataSource()
-    }
-    
     private let tossModel: TossModel
     
     init(tossModel: TossModel) {
@@ -33,6 +24,21 @@ final class TossViewController: BaseViewController, UIScrollViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = customView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureDataSource()
+        title = Strings.Toss.tossTapLot
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customView.setGradientBackground(for: .orange)
+        super.viewWillAppear(animated)
     }
     
     private func configureDataSource() {
