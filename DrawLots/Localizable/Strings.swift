@@ -32,6 +32,8 @@ enum Strings {
         static let quantityCannotBeEqual = "error_quantity_cannot_be_equal".localized(bundle: bundle)
         /// Количество участников не может быть меньше проигравших
         static let numberCannotBeLess = "error_number_cannot_be_less".localized(bundle: bundle)
+        /// Максимальное количество участников не может превышать миллион
+        static let maxNumberParticipantIsMillion = "error_max_number_participant".localized(bundle: bundle)
         /// Количество не может быть нулевым
         static let quantityCannotBeZero = "error_quantity_cannot_be_zero".localized(bundle: bundle)
         /// Количество участников не может быть нулевым

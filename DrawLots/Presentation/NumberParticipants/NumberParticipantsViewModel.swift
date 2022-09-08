@@ -7,6 +7,12 @@
 
 import ReactorKit
 
+private extension NumberParticipantsViewModel {
+    enum Constatns {
+        static let maxNumberParticipants = 1_000_000
+    }
+}
+
 final class NumberParticipantsViewModel: Reactor {
     
     var initialState: State
@@ -79,23 +85,12 @@ final class NumberParticipantsViewModel: Reactor {
     }
     
     private func processTapContinue() -> Observable<Mutation> {
-        
         if let numberParticipants = Int(currentState.inputParitcipantsNumber.orEmpty),
            let numberLosers = Int(currentState.inputLosersNumber.orEmpty) {
-
-            var participants = Array<Participant>(
-                repeating: Participant(isLoser: false),
-                count: numberParticipants
+            tossModel = TossModel(
+                numberLosers: numberLosers,
+                numberParticipants: numberParticipants
             )
-    
-            for i in 0..<numberLosers {
-                participants[i].isLoser = true
-            }
-
-            participants.shuffle()
-            
-            tossModel = TossModel(participants: participants)
-            
             return .of(
                 .setGoToDraw(true),
                 .setGoToDraw(nil)
@@ -177,6 +172,15 @@ final class NumberParticipantsViewModel: Reactor {
                 .showAllert(nil),
                 .setInputLosersNumber(""),
                 .setInputLosersNumber(nil)
+            )
+        }
+        
+        if paritcipantsNumber > Constatns.maxNumberParticipants {
+            return .of(
+                .showAllert(Strings.Error.maxNumberParticipantIsMillion),
+                .showAllert(nil),
+                .setInputNumberParticipants(""),
+                .setInputNumberParticipants(nil)
             )
         }
         

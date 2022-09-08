@@ -26,6 +26,7 @@
 "error_quantity_cannot_be_zero" = "The number cannot be zero";
 "error_quantity_participant_cannot_be_zero" = "The number of participants cannot be zero";
 "error_quantity_losers_cannot_be_zero" = "The number of losers cannot be zero";
+"error_max_number_participant" = "Maximum number of participants cannot exceed one million";
 
 // MARK: - Toss
 

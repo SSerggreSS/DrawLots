@@ -76,6 +76,7 @@ final class TossViewCell: UICollectionViewCell {
         titleLabel.alpha = 0
         titleLabel.isHidden = false
         model?.isHidden = false
+        tapAnimation()
         UIView.animate(
             withDuration: 0.5,
             animations: {
