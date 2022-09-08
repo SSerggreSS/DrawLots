@@ -20,7 +20,7 @@ final class TossView: BaseView {
         layout.minimumInteritemSpacing = 24
         layout.minimumLineSpacing = 24
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .orange
+        collectionView.backgroundColor = .clear
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.register(TossViewCell.self, forCellWithReuseIdentifier: TossViewCell.name)
         return collectionView

@@ -8,8 +8,6 @@
 import UIKit
 import CoreData
 
-#warning("Баг в приложении, можно ввести участника 1 и проигравших 0")
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

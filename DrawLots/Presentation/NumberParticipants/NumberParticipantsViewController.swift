@@ -19,7 +19,7 @@ final class NumberParticipantsViewController: BaseViewController, View {
     
     weak var delegate: NumberParticipantsViewControllerDelegate?
     
-    internal var disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     private let customView = NumberParticipantsView()
     
@@ -36,6 +36,11 @@ final class NumberParticipantsViewController: BaseViewController, View {
     
     override func loadView() {
        view = customView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customView.setGradientBackground(for: .orange)
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Bind rx
@@ -106,7 +111,6 @@ final class NumberParticipantsViewController: BaseViewController, View {
                 self?.customView.losersTextField.animationShake()
             }
             .disposed(by: disposeBag)
-        
     }
     
     private func bindViewWith(reactor: NumberParticipantsViewModel) {
@@ -141,6 +145,9 @@ final class NumberParticipantsViewController: BaseViewController, View {
         
         customView.continueButton.rx
             .tap
+            .do(onNext: {
+                self.customView.continueButton.tapAnimation()
+            })
             .map { .processTapContinue }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

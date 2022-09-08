@@ -28,7 +28,7 @@ extension UITextField {
                 action: nil
             )
             let done: UIBarButtonItem = UIBarButtonItem(
-                title: DrawLotsLocalizable.Common.done,
+                title: Strings.Common.done,
                 style: .done,
                 target: self,
                 action: #selector(doneButtonAction)

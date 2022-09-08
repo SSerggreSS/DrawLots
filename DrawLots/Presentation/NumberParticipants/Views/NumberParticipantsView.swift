@@ -12,15 +12,17 @@ private extension Appearance {
     var titleLabelTextColor: UIColor { .white }
     var numberTextFieldFont: UIFont { .systemFont(ofSize: 20) }
     var numberTextFieldHeight: CGFloat { 56 }
-    var numberTextFieldBackgroundColor: UIColor { .lightGray }
+    var numberTextFieldBackgroundColor: UIColor { .white }
     var titleLabelFont: UIFont { .systemFont(ofSize: 28) }
     var continueButtonHeight: CGFloat { 56 }
     var textFieldSideTextOffset: CATransform3D { CATransform3DMakeTranslation(8, 0, 0) }
+    var textFieldTextColor: UIColor { .black }
+    var stackViewSpacing: CGFloat { 24 }
 }
 
 final class NumberParticipantsView: BaseView {
     
-    private let strings = DrawLotsLocalizable.NumberParticipants.self
+    private let strings = Strings.NumberParticipants.self
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -28,37 +30,48 @@ final class NumberParticipantsView: BaseView {
         label.font = appearance.titleLabelFont
         label.textColor = appearance.titleLabelTextColor
         label.numberOfLines = .zero
+        label.setShadow()
         return label
     }()
     
     private lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = appearance.baseOffset
+        sv.spacing = appearance.stackViewSpacing
         return sv
     }()
     
     private(set) lazy var participantsTextField: UITextField = {
         let tf = UITextField()
         tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
-        tf.placeholder = strings.entryCountParticipants
+        tf.attributedPlaceholder = NSAttributedString(
+            string: strings.entryCountParticipants,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        tf.textColor = appearance.textFieldTextColor
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
         tf.addDoneButtonOnKeyboard()
+        tf.setShadow()
         return tf
     }()
     
     private(set) lazy var losersTextField: UITextField = {
         let tf = UITextField()
         tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
-        tf.placeholder = strings.entryCountLosers
+        tf.attributedPlaceholder = NSAttributedString(
+            string: strings.entryCountLosers,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        tf.textColor = appearance.textFieldTextColor
         tf.backgroundColor = appearance.numberTextFieldBackgroundColor
         tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
         tf.addDoneButtonOnKeyboard()
+        tf.setShadow()
         return tf
     }()
     
@@ -67,6 +80,7 @@ final class NumberParticipantsView: BaseView {
         button.setTitle(strings.goToDraw, for: .normal)
         button.backgroundColor = .blue
         button.layer.cornerRadius = appearance.baseCornerRadius
+        button.setShadow()
         return button
     }()
     

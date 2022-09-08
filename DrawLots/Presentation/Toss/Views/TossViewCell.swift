@@ -64,14 +64,19 @@ final class TossViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showWinOrLoss)))
+        addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(showWinOrLoss))
+        )
         layer.cornerRadius = appearance.baseCornerRadius
+        setShadow()
     }
     
     @objc private func showWinOrLoss() {
         titleLabel.alpha = 0
         titleLabel.isHidden = false
         model?.isHidden = false
+        tapAnimation()
         UIView.animate(
             withDuration: 0.5,
             animations: {

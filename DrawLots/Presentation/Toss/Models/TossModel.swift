@@ -7,10 +7,7 @@
 
 import Foundation
 
-struct Participant {
-    var isLoser: Bool
-}
-
 struct TossModel {
-    let participants: [Participant]
+    let numberLosers: Int
+    let numberParticipants: Int
 }

@@ -9,10 +9,25 @@
 // MARK: - Common
 
 "done" = "Done";
+"ok" = "Ok";
 
 // MARK: - NumberParticipants
 
-"number_participants_specify" = "Укажите количество участников и количество проигравших";
-"number_participants_go_to_draw" = "Прейти к жребию";
-"number_participants_entry_count" = "Введите количество участников";
-"number_participants_entry_count_losers" = "Введите количество проигравших";
+"number_participants_specify" = "Specify the number of participants and the number of losers";
+"number_participants_go_to_draw" = "Go to the draw";
+"number_participants_entry_count" = "Enter the number of participants";
+"number_participants_entry_count_losers" = "Enter the number of losers";
+
+// MARK: - Error
+
+"input_error" = "Input error";
+"error_quantity_cannot_be_equal" = "The number of participants cannot be equal to the number of losers";
+"error_number_cannot_be_less" = "The number of participants cannot be less than the losers";
+"error_quantity_cannot_be_zero" = "The number cannot be zero";
+"error_quantity_participant_cannot_be_zero" = "The number of participants cannot be zero";
+"error_quantity_losers_cannot_be_zero" = "The number of losers cannot be zero";
+"error_max_number_participant" = "Maximum number of participants cannot exceed one million";
+
+// MARK: - Toss
+
+"toss_tap_lot" = "Tap the lot";
