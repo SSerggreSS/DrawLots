@@ -51,15 +51,32 @@ final class TossViewController: BaseViewController, UIScrollViewDelegate {
               return cell
         })
         
-        let items = tossModel.participants.map { TossCellModel(participant: $0) }
+        var participants = Array<Participant>(
+            repeating: Participant(isLoser: false),
+            count: tossModel.numberParticipants
+        )
+    
+        self.rx.startActivityIndicator(self)
         
-        let sections = [
-            SectionOfCustomData(header: "", items: items)
-        ]
-        
-        Observable.just(sections)
-            .bind(to: customView.tossCollectionView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
+        DispatchQueue.global(qos: .userInteractive).async {
+            for i in 0..<self.tossModel.numberLosers {
+                participants[i].isLoser = true
+            }
+            participants.shuffle()
+            
+            DispatchQueue.main.async {
+                let items = participants.map { TossCellModel(participant: $0) }
+                
+                let sections = [
+                    SectionOfCustomData(header: "", items: items)
+                ]
+                
+                Observable.just(sections)
+                    .bind(to: self.customView.tossCollectionView.rx.items(dataSource: dataSource))
+                    .disposed(by: self.disposeBag)
+                self.rx.stopActivityIndicator(self)
+            }
+        }
     }
 }
 

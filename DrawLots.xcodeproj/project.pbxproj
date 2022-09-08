@@ -38,6 +38,9 @@
 		A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */; };
 		A5DF3E8F2846C870003BE775 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF3E8E2846C870003BE775 /* Coordinator.swift */; };
 		A5E0FEC1285FBED2003C3D5D /* TossModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E0FEC0285FBED2003C3D5D /* TossModel.swift */; };
+		A5F628FF28CA8974004E9997 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F628FE28CA8974004E9997 /* Participant.swift */; };
+		A5F6290328CA8A18004E9997 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6290228CA8A18004E9997 /* ActivityIndicator.swift */; };
+		A5F6290528CA8A87004E9997 /* Reactive+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6290428CA8A87004E9997 /* Reactive+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		A5DF3E8A2846C1AA003BE775 /* NumberParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParticipantsViewModel.swift; sourceTree = "<group>"; };
 		A5DF3E8E2846C870003BE775 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A5E0FEC0285FBED2003C3D5D /* TossModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossModel.swift; sourceTree = "<group>"; };
+		A5F628FE28CA8974004E9997 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		A5F6290228CA8A18004E9997 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		A5F6290428CA8A87004E9997 /* Reactive+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 		A595874E2843F7DF004C8F59 /* DrawLots */ = {
 			isa = PBXGroup;
 			children = (
+				A5F6290028CA89CE004E9997 /* Common */,
 				A5DF3E8D2846C80F003BE775 /* Navigation */,
 				A5DF3E8C2846C7E5003BE775 /* Presentation */,
 				A5DF3E802846B9FC003BE775 /* Localizable */,
@@ -246,6 +253,7 @@
 				A598E1AC284C33B700FDF9BD /* UITextField+Ext.swift */,
 				A585E0D5285687D40069C090 /* UIView+Ext.swift */,
 				A57D3DD428BD1F8500EEDF3D /* UIViewController+Ext.swift */,
+				A5F6290428CA8A87004E9997 /* Reactive+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,8 +289,25 @@
 			isa = PBXGroup;
 			children = (
 				A5E0FEC0285FBED2003C3D5D /* TossModel.swift */,
+				A5F628FE28CA8974004E9997 /* Participant.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A5F6290028CA89CE004E9997 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5F6290128CA89DA004E9997 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A5F6290128CA89DA004E9997 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5F6290228CA8A18004E9997 /* ActivityIndicator.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,10 +466,13 @@
 				A5E0FEC1285FBED2003C3D5D /* TossModel.swift in Sources */,
 				A587FCBC28480AF6003F71B6 /* TossViewController.swift in Sources */,
 				A587FCC228480E33003F71B6 /* TossView.swift in Sources */,
+				A5F628FF28CA8974004E9997 /* Participant.swift in Sources */,
+				A5F6290528CA8A87004E9997 /* Reactive+Ext.swift in Sources */,
 				A585E0DB28568FEA0069C090 /* Theme.swift in Sources */,
 				A5DF3E8B2846C1AA003BE775 /* NumberParticipantsViewModel.swift in Sources */,
 				A59587502843F7DF004C8F59 /* AppDelegate.swift in Sources */,
 				A53DD7072844000B00C5492B /* BaseView.swift in Sources */,
+				A5F6290328CA8A18004E9997 /* ActivityIndicator.swift in Sources */,
 				A57D3DD528BD1F8500EEDF3D /* UIViewController+Ext.swift in Sources */,
 				A53DD7032843FF5600C5492B /* NumberParticipantsViewController.swift in Sources */,
 				A587FCC628481164003F71B6 /* NSObject+Ext.swift in Sources */,
