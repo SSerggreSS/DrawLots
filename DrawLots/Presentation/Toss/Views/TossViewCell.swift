@@ -8,7 +8,7 @@
 import UIKit
 
 private extension Appearance {
-    #warning("add all items appearance")
+#warning("add all items appearance")
 }
 
 final class TossViewCell: UICollectionViewCell {
@@ -18,6 +18,8 @@ final class TossViewCell: UICollectionViewCell {
     private var feedbackGenerator = Vibration()
     
     private var model: TossCellModel?
+    
+    private var isNotAnimated = true
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -44,7 +46,7 @@ final class TossViewCell: UICollectionViewCell {
     func configureWith(item: TossCellModel) {
         model = item
         titleLabel.isHidden = item.isHidden
-        titleLabel.text = item.participant.isLoser ? "😔" : "✌️"
+        titleLabel.text = item.participant.isLoser ? "☹️" : "🙂"
     }
     
     private func setupUI() {
@@ -69,28 +71,35 @@ final class TossViewCell: UICollectionViewCell {
             action: #selector(showWinOrLoss))
         )
         layer.cornerRadius = appearance.baseCornerRadius
+        layer.masksToBounds = true
         setShadow()
     }
     
     @objc private func showWinOrLoss() {
-        titleLabel.alpha = 0
         titleLabel.isHidden = false
         model?.isHidden = false
         tapAnimation()
-        UIView.animate(
-            withDuration: 0.5,
-            animations: {
-                self.titleLabel.alpha = 1
-            },
-            completion: { _ in
-                guard self.model?.participant.isLoser == true else {
-                    self.feedbackGenerator.setVibration(behavior: OneVibration())
-                    self.feedbackGenerator.vibrate()
-                    return
-                }
-                self.feedbackGenerator.setVibration(behavior: DoubleVibration())
-                self.feedbackGenerator.vibrate()
+        guard self.isNotAnimated else { return }
+        self.isNotAnimated.toggle()
+        titleLabel.alpha = 0
+        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromTop, animations: {
+            self.titleLabel.alpha = 1
+        }, completion: { _ in
+            self.layer.borderWidth = 2
+            if self.model?.participant.isLoser == true {
+                self.titleLabel.animationShake()
+                self.layer.borderColor = UIColor.red.cgColor
+            } else {
+                self.titleLabel.animationShake(byAxis: .y)
+                self.layer.borderColor = UIColor.yellow.cgColor
             }
-        )
+        })
+        guard self.model?.participant.isLoser == true else {
+            self.feedbackGenerator.setVibration(behavior: OneVibration())
+            self.feedbackGenerator.vibrate()
+            return
+        }
+        self.feedbackGenerator.setVibration(behavior: DoubleVibration())
+        self.feedbackGenerator.vibrate()
     }
 }

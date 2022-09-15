@@ -43,36 +43,46 @@ final class NumberParticipantsView: BaseView {
     
     private(set) lazy var participantsTextField: UITextField = {
         let tf = UITextField()
-        tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
         tf.attributedPlaceholder = NSAttributedString(
             string: strings.entryCountParticipants,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         tf.textColor = appearance.textFieldTextColor
-        tf.backgroundColor = appearance.numberTextFieldBackgroundColor
-        tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
+        tf.clearButtonMode = .whileEditing
         tf.addDoneButtonOnKeyboard()
-        tf.setShadow()
         return tf
+    }()
+    
+    private(set) lazy var participantsTextFieldContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = appearance.numberTextFieldBackgroundColor
+        view.layer.cornerRadius = appearance.baseCornerRadius
+        view.setShadow()
+        return view
     }()
     
     private(set) lazy var losersTextField: UITextField = {
         let tf = UITextField()
-        tf.layer.sublayerTransform = appearance.textFieldSideTextOffset
         tf.attributedPlaceholder = NSAttributedString(
             string: strings.entryCountLosers,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         tf.textColor = appearance.textFieldTextColor
-        tf.backgroundColor = appearance.numberTextFieldBackgroundColor
-        tf.layer.cornerRadius = appearance.baseCornerRadius
         tf.font = appearance.numberTextFieldFont
         tf.keyboardType = .asciiCapableNumberPad
+        tf.clearButtonMode = .whileEditing
         tf.addDoneButtonOnKeyboard()
-        tf.setShadow()
         return tf
+    }()
+    
+    private(set) lazy var losersTextFieldContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = appearance.numberTextFieldBackgroundColor
+        view.layer.cornerRadius = appearance.baseCornerRadius
+        view.setShadow()
+        return view
     }()
     
     private(set) lazy var continueButton: BaseButton = {
@@ -86,9 +96,11 @@ final class NumberParticipantsView: BaseView {
     
     override func addSubviews() {
         super.addSubviews()
+        participantsTextFieldContainer.addSubview(participantsTextField)
+        losersTextFieldContainer.addSubview(losersTextField)
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(participantsTextField)
-        stackView.addArrangedSubview(losersTextField)
+        stackView.addArrangedSubview(participantsTextFieldContainer)
+        stackView.addArrangedSubview(losersTextFieldContainer)
         addSubview(stackView)
         addSubview(continueButton)
     }
@@ -102,10 +114,18 @@ final class NumberParticipantsView: BaseView {
         }
         
         participantsTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(8)
+        }
+        
+        participantsTextFieldContainer.snp.makeConstraints { make in
             make.height.equalTo(appearance.numberTextFieldHeight)
         }
         
         losersTextField.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(8)
+        }
+        
+        losersTextFieldContainer.snp.makeConstraints { make in
             make.height.equalTo(appearance.numberTextFieldHeight)
         }
         

@@ -7,11 +7,15 @@
 
 import UIKit
 
-
+enum AxisType {
+    case x
+    case y
+}
 
 private extension UIView {
     enum Constants {
         static let transformTranslationXKey = "transform.translation.x"
+        static let transformTranslationYKey = "transform.translation.y"
         static let transformTranslationDuration: CFTimeInterval = 0.5
         static let transformTranslationValues = [
             -16.0, 16.0,
@@ -48,8 +52,11 @@ extension UIView {
         }
     }
     
-    func animationShake() {
-        let animation = CAKeyframeAnimation(keyPath: Constants.transformTranslationXKey)
+    func animationShake(byAxis: AxisType = .x) {
+        let keyAnimation = byAxis == .x
+        ? Constants.transformTranslationXKey
+        : Constants.transformTranslationYKey
+        let animation = CAKeyframeAnimation(keyPath: keyAnimation)
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = Constants.transformTranslationDuration
         animation.values = Constants.transformTranslationValues

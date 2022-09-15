@@ -43,25 +43,34 @@ final class TossViewController: BaseViewController, UIScrollViewDelegate {
     
     private func configureDataSource() {
         
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfCustomData>(
+        let dataSource = RxCollectionViewSectionedAnimatedDataSource<SectionOfCustomData>(
           configureCell: { _, collectionView, indexPath, item in
               let cell: TossViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TossViewCell.name, for: indexPath) as! TossViewCell
               cell.backgroundColor = .green
               cell.configureWith(item: item)
+              cell.alpha = 0
+              UIView.animate(withDuration: 1, animations: {
+                  cell.alpha = 1
+              })
               return cell
         })
         
-        var participants = Array<Participant>(
-            repeating: Participant(isLoser: false),
-            count: tossModel.numberParticipants
-        )
+        var participants = [Participant]()
     
         self.rx.startActivityIndicator(self)
         
         DispatchQueue.global(qos: .userInteractive).async {
+            
+            for i in 0..<self.tossModel.numberParticipants {
+                let participant = Participant(id: i)
+                participants.append(participant)
+            }
+            
             for i in 0..<self.tossModel.numberLosers {
                 participants[i].isLoser = true
             }
+            
+            participants.shuffle()
             participants.shuffle()
             
             DispatchQueue.main.async {
@@ -80,17 +89,28 @@ final class TossViewController: BaseViewController, UIScrollViewDelegate {
     }
 }
 
-class TossCellModel {
+class TossCellModel: IdentifiableType, Equatable {
+    typealias Identity = Int
+    
+    let participant: Participant
+    var isHidden = true
+    var identity: Int {
+        return participant.id
+    }
     init(participant: Participant) {
         self.participant = participant
     }
-    let participant: Participant
-    var isHidden = true
+    static func == (lhs: TossCellModel, rhs: TossCellModel) -> Bool {
+        lhs.participant.id == rhs.participant.id
+    }
 }
 
-struct SectionOfCustomData: SectionModelType {
+struct SectionOfCustomData: AnimatableSectionModelType {
     var header: String
     var items: [Item]
+    var identity: String {
+        return header
+    }
 }
 
 extension SectionOfCustomData {

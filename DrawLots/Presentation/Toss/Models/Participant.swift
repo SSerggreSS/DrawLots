@@ -8,5 +8,6 @@
 import Foundation
 
 struct Participant {
-    var isLoser: Bool
+    var id: Int
+    var isLoser = false
 }
