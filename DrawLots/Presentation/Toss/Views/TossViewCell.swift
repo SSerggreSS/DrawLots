@@ -8,7 +8,7 @@
 import UIKit
 
 private extension Appearance {
-#warning("add all items appearance")
+#warning("add all items appearance, изменения которые произошли в моделе, нужно отправить в источник данных для актуализации, исправить баг при вводе не соотвнествующего количества участников")
 }
 
 final class TossViewCell: UICollectionViewCell {
@@ -41,6 +41,7 @@ final class TossViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         model = nil
+        isNotAnimated = true
     }
     
     func configureWith(item: TossCellModel) {
@@ -82,16 +83,15 @@ final class TossViewCell: UICollectionViewCell {
         guard self.isNotAnimated else { return }
         self.isNotAnimated.toggle()
         titleLabel.alpha = 0
+        let isLoser = self.model?.participant.isLoser == true
         UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromTop, animations: {
             self.titleLabel.alpha = 1
+            self.backgroundColor = isLoser ? .red : .yellow
         }, completion: { _ in
-            self.layer.borderWidth = 2
             if self.model?.participant.isLoser == true {
                 self.titleLabel.animationShake()
-                self.layer.borderColor = UIColor.red.cgColor
             } else {
                 self.titleLabel.animationShake(byAxis: .y)
-                self.layer.borderColor = UIColor.yellow.cgColor
             }
         })
         guard self.model?.participant.isLoser == true else {

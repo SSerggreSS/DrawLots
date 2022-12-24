@@ -80,7 +80,7 @@ extension UIView {
     
     func tapAnimation(_ completionBlock: (() -> Void)? = nil) {
         isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.1,
+        UIView.animate(withDuration: 0.01,
                        delay: 0,
                        options: .curveLinear,
                        animations: { [weak self] in
